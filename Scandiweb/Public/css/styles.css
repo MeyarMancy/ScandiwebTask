@@ -1,0 +1,276 @@
+body {
+    font-family: Courier, monospace;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    margin: 2em;
+}
+
+hr {
+    opacity: 1;
+    -webkit-appearance: none;
+    box-shadow: -10px -10px 15px rgba(255,255,255,0.5),
+        10px 10px 15px rgba(0,0,70,0.12);
+    border-radius: 10px;
+    border: 6px solid #ececec;
+    outline: none;
+}
+
+/* Styles for nav bar */
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Styles for the buttons */
+.buttons {
+    font-family: Courier, monospace;
+    display: inline-block;
+    transition: all 0.2s ease-in;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    color: #090909;
+    padding: 0.5em 1.5em;
+    font-size: 18px;
+    border-radius: 0.5em;
+    background: #e8e8e8;
+    border: 1px solid #e8e8e8;
+    box-shadow: 6px 6px 12px #c5c5c5,
+               -6px -6px 12px #ffffff;
+}
+  
+.buttons:active {
+    color: #666;
+    box-shadow: inset 4px 4px 12px #c5c5c5,
+               inset -4px -4px 12px #ffffff;
+}
+  
+.buttons:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.25);
+    top: 100%;
+    width: 140%;
+    height: 180%;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+}
+  
+.buttons:after {
+    content: "";
+    position: absolute;
+    left: 55%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.45);
+    top: 180%;
+    width: 160%;
+    height: 190%;
+    background-color: #009087;
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+  }
+  
+.buttons:hover {
+    color: #ffffff;
+    border: 1px solid #009087;
+}
+  
+.buttons:hover:before {
+    top: -35%;
+    background-color: #05d5c7;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+  
+.buttons:hover:after {
+    top: -45%;
+    background-color: #009087;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+#delete_btn:hover:after, #cancel_btn:hover:after{
+    background-color: darkred;
+}
+
+#delete_btn:hover:before, #cancel_btn:hover:before {
+    background-color: rgb(156, 37, 37);
+}
+
+/* Styles for flex cards display of products */
+.container {
+    margin: 0 auto;
+    padding: 1em 1em;
+}
+
+.card {
+    justify-content: center;
+    border-radius: 30px;
+    background: #e0e0e0;
+    box-shadow: 15px 15px 30px #bebebe,
+               -15px -15px 30px #ffffff;
+    
+}
+
+.card .info {
+    padding: 4em;
+    align-items: center;
+}
+
+@media screen and (min-width: 40em) {
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: -1em;
+    }
+
+    .card {
+        display: flex;
+        flex: 0 1 calc(33% - .5em);
+        margin-bottom: 1em;
+    }
+}
+
+@media screen and (min-width: 60em) {
+    .container {
+        max-width: 60em;
+    }
+
+    .cards {
+        margin-top: inherit;
+    }
+    
+    .card {
+        flex: 0 1 calc(25% - 1em);
+        margin-bottom: 2em;
+    }
+}
+
+/** Styles for the Checkbox **/
+.container input {
+    position: absolute;
+    opacity: 1;
+    -webkit-appearance: none;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    box-shadow: -10px -10px 15px rgba(255,255,255,0.5),
+    10px 10px 15px rgba(0,0,70,0.12);
+    border-radius: 50%;
+    border: 8px solid #ececec;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .5s;
+
+}
+
+.container input::after {
+    transition: .5s;
+    font-family: monospace;
+    content: '';
+    color: #7a7a7a;
+    font-size: 25px;
+    left: 0.45em;
+    top: 0.25em;
+    width: 0.25em;
+    height: 0.5em;
+    border: solid #7a7a7a;
+    border-width: 0 0.15em 0.15em 0;
+    transform: rotate(45deg);
+}
+  
+.container input:checked {
+    box-shadow: -10px -10px 15px rgba(255,255,255,0.5),
+    10px 10px 15px rgba(70,70,70,0.12),
+    inset -10px -10px 15px rgba(255,255,255,0.5),
+    inset 10px 10px 15px rgba(70,70,70,0.12);
+    transition: .5s;
+}
+  
+.container input:checked::after {
+    transition: .5s;
+    border: solid #05d5c7;
+    border-width: 0 0.15em 0.15em 0;
+    transform: rotate(45deg);
+}
+
+/* Styles for fieldset */
+fieldset{
+    border-color: transparent;
+    
+}
+
+.fieldset {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: stretch;
+    align-items: center;
+    margin: 2em;
+}
+
+.label {
+    min-width: 10em;
+    margin: 0.5em;
+}
+
+.input {
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
+    background-color: #e8e8e8;
+    box-shadow: 6px 6px 12px #ffffff,
+                -6px -6px 12px #c5c5c5;
+    font-size: medium;
+    font-weight: bold;
+    max-width: 300px;
+}
+   
+.input:focus {
+    outline-color: white;
+    place-content: "Enter your message!";
+}
+
+.description {
+    margin-left: 2.5em;
+}
+
+select ,option{
+    -webkit-appearance:none;
+    -webkit-text-decoration-skip: none;
+    min-width: 240px;
+}
+
+/* showing and hiding product type fields */
+#DVDField {
+    display: none;
+}
+
+#BookField {
+    display: none;
+}
+
+#FurnitureField {
+    display: none;
+}
+
+/* Styles for  Error messages */
+.errors {
+    color:crimson;
+    display: none;
+}
